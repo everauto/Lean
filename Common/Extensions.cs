@@ -2392,5 +2392,18 @@ namespace QuantConnect
 
             return new OptionChainUniverse(optionChain, settings, algorithm.LiveMode);
         }
+
+        /// <summary>
+        /// Compares two values using given operator
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="op">Comparison operator</param>
+        /// <param name="arg1">The first value</param>
+        /// <param name="arg2">The second value</param>
+        /// <returns>Returns true if its left-hand operand meets the operator value to its right-hand operand, false otherwise</returns>
+        public static bool Compare<T>(this ComparisonOperatorTypes op, T arg1, T arg2) where T : IComparable
+        {
+            return ComparisonOperator.Compare(op, arg1, arg2);
+        }
     }
 }
